@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Registration Form</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f2f2f2;
+}
+
+.form-card{
+    width:420px;
+    margin:30px auto;
+    background:#fff;
+    padding:25px;
+    border-radius:8px;
+    box-shadow:0 0 10px rgba(0,0,0,0.2);
+}
+
+h2{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+label{
+    font-weight:bold;
+    display:block;
+    margin-top:12px;
+}
+
+input, textarea, select{
+    width:100%;
+    padding:8px;
+    margin-top:5px;
+    box-sizing:border-box;
+}
+
+/* ✅ Proper alignment for Gender & Hobbies */
+.option-group{
+    display:grid;
+    grid-template-columns: repeat(4, auto);
+    gap:14px 20px;
+    margin-top:6px;
+}
+
+.option-group label{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    font-weight:normal;
+}
+
+small{
+    color:red;
+}
+
+button{
+    width:100%;
+    padding:10px;
+    background:#007bff;
+    color:white;
+    border:none;
+    border-radius:4px;
+    margin-top:18px;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="form-card">
+<h2>Registration Form</h2>
+
+<form id="regForm">
+
+<label>Name</label>
+<input type="text" id="name">
+<small id="nameErr"></small>
+
+<label>Mobile Number</label>
+<input type="text" id="mobile">
+<small id="mobileErr"></small>
+
+<label>Email</label>
+<input type="email" id="email">
+
+<label>Password</label>
+<input type="password" id="password">
+<small>Exactly 8 characters with at least 2 numbers</small>
+<small id="passErr"></small>
+
+<label>College</label>
+<input type="text" id="college">
+
+<label>Degree</label>
+<input type="text" id="degree">
+
+<label>Year</label>
+<input type="number" id="year">
+
+<label>Address</label>
+<textarea id="address"></textarea>
+
+<label>City</label>
+<select id="city">
+    <option value="">-- Select City --</option>
+    <option>Pune</option>
+    <option>Mumbai</option>
+    <option>Delhi</option>
+</select>
+
+<label>Gender</label>
+<div class="option-group">
+    <label><input type="radio" name="gender" value="Male"> Male</label>
+    <label><input type="radio" name="gender" value="Female"> Female</label>
+</div>
+
+<label>Hobbies</label>
+<div class="option-group">
+    <label><input type="checkbox" value="Reading"> Reading</label>
+    <label><input type="checkbox" value="Sports"> Sports</label>
+    <label><input type="checkbox" value="Music"> Music</label>
+    <label><input type="checkbox" value="Dance"> Dance</label>
+</div>
+
+<button type="submit">Register</button>
+
+</form>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

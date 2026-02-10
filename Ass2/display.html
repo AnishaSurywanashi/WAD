@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Registered Users</title>
+
+<style>
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+th, td{
+    border:1px solid black;
+    padding:8px;
+}
+th{
+    background:#007bff;
+    color:white;
+}
+</style>
+</head>
+
+<body>
+
+<h2 align="center">Registered Users List</h2>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Mobile</th>
+<th>Email</th>
+<th>Password</th>
+<th>College</th>
+<th>Degree</th>
+<th>Year</th>
+<th>Address</th>
+<th>City</th>
+<th>Gender</th>
+<th>Hobbies</th>
+</tr>
+</thead>
+
+<tbody id="data"></tbody>
+</table>
+
+<script>
+let users = JSON.parse(localStorage.getItem("users")) || [];
+let rows = "";
+
+users.forEach(u => {
+    rows += `<tr>
+        <td>${u.name}</td>
+        <td>${u.mobile}</td>
+        <td>${u.email}</td>
+        <td>${u.password}</td>
+        <td>${u.college}</td>
+        <td>${u.degree}</td>
+        <td>${u.year}</td>
+        <td>${u.address}</td>
+        <td>${u.city}</td>
+        <td>${u.gender}</td>
+        <td>${u.hobbies}</td>
+    </tr>`;
+});
+
+document.getElementById("data").innerHTML = rows;
+</script>
+
+</body>
+</html>
