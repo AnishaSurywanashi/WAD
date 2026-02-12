@@ -1,3 +1,8 @@
+function togglePassword(){
+    let pass = document.getElementById("password");
+    pass.type = pass.type === "password" ? "text" : "password";
+}
+
 document.getElementById("regForm").addEventListener("submit", function(e){
     e.preventDefault();
 
@@ -20,12 +25,12 @@ document.getElementById("regForm").addEventListener("submit", function(e){
     document.getElementById("passErr").innerHTML = "";
 
     if(!namePattern.test(name)){
-        document.getElementById("nameErr").innerHTML = "Only alphabets and spaces allowed";
+        document.getElementById("nameErr").innerHTML = "Only alphabets allowed";
         return;
     }
 
     if(!mobilePattern.test(mobile)){
-        document.getElementById("mobileErr").innerHTML = "Enter exactly 10 digits";
+        document.getElementById("mobileErr").innerHTML = "Enter 10 digit number";
         return;
     }
 
@@ -41,7 +46,7 @@ document.getElementById("regForm").addEventListener("submit", function(e){
     }
 
     let hobbies = [];
-    document.querySelectorAll(".inline-group input[type=checkbox]:checked")
+    document.querySelectorAll(".option-group input[type=checkbox]:checked")
         .forEach(h => hobbies.push(h.value));
 
     if(!confirm("Are you sure you want to submit the form?")){
@@ -55,13 +60,6 @@ document.getElementById("regForm").addEventListener("submit", function(e){
         gender: gender.value,
         hobbies: hobbies.join(", ")
     };
-
-    // AJAX POST (simulation)
-    fetch("register", {
-        method:"POST",
-        headers:{ "Content-Type":"application/json" },
-        body:JSON.stringify(user)
-    });
 
     let users = JSON.parse(localStorage.getItem("users")) || [];
     users.push(user);

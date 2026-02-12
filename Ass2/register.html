@@ -9,7 +9,6 @@ body{
     font-family: Arial, sans-serif;
     background:#f2f2f2;
 }
-
 .form-card{
     width:420px;
     margin:30px auto;
@@ -18,44 +17,36 @@ body{
     border-radius:8px;
     box-shadow:0 0 10px rgba(0,0,0,0.2);
 }
-
 h2{
     text-align:center;
     margin-bottom:20px;
 }
-
 label{
     font-weight:bold;
     display:block;
     margin-top:12px;
 }
-
 input, textarea, select{
     width:100%;
     padding:8px;
     margin-top:5px;
     box-sizing:border-box;
 }
-
-/* ✅ Proper alignment for Gender & Hobbies */
 .option-group{
     display:grid;
     grid-template-columns: repeat(4, auto);
     gap:14px 20px;
     margin-top:6px;
 }
-
 .option-group label{
     display:flex;
     align-items:center;
     gap:6px;
     font-weight:normal;
 }
-
 small{
     color:red;
 }
-
 button{
     width:100%;
     padding:10px;
@@ -88,7 +79,12 @@ button{
 <input type="email" id="email">
 
 <label>Password</label>
-<input type="password" id="password">
+<div style="position:relative;">
+    <input type="password" id="password" style="padding-right:40px;">
+    <span onclick="togglePassword()"
+          style="position:absolute; right:10px; top:50%; transform:translateY(-50%);
+          cursor:pointer; font-size:18px;">👁️</span>
+</div>
 <small>Exactly 8 characters with at least 2 numbers</small>
 <small id="passErr"></small>
 
