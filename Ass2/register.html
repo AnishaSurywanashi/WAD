@@ -82,11 +82,15 @@ button{
 <div style="position:relative;">
     <input type="password" id="password" style="padding-right:40px;">
     <span onclick="togglePassword()"
-          style="position:absolute; right:10px; top:50%; transform:translateY(-50%);
-          cursor:pointer; font-size:18px;">👁️</span>
+          style="position:absolute; right:10px; top:50%;
+          transform:translateY(-50%); cursor:pointer;">👁️</span>
 </div>
 <small>Exactly 8 characters with at least 2 numbers</small>
 <small id="passErr"></small>
+
+<label>Date of Birth</label>
+<input type="date" id="dob">
+<small id="dateErr"></small>
 
 <label>College</label>
 <input type="text" id="college">

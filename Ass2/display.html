@@ -30,6 +30,7 @@ th{
 <th>Mobile</th>
 <th>Email</th>
 <th>Password</th>
+<th>DOB</th>
 <th>College</th>
 <th>Degree</th>
 <th>Year</th>
@@ -44,7 +45,7 @@ th{
 </table>
 
 <script>
-let users = JSON.parse(localStorage.getItem("users")) || "";
+let users = JSON.parse(localStorage.getItem("users")) || [];
 let rows = "";
 
 users.forEach(u => {
@@ -53,6 +54,7 @@ users.forEach(u => {
         <td>${u.mobile}</td>
         <td>${u.email}</td>
         <td>${u.password}</td>
+        <td>${u.dob}</td>
         <td>${u.college}</td>
         <td>${u.degree}</td>
         <td>${u.year}</td>
