@@ -1,0 +1,12 @@
+<section class="card" *ngIf="user; else noUserTemplate">
+  <h2>Profile</h2>
+  <p><strong>Username:</strong> {{ user.username }}</p>
+  <p><strong>Email:</strong> {{ user.email }}</p>
+</section>
+
+<ng-template #noUserTemplate>
+  <section class="card empty-state">
+    <h2>Profile</h2>
+    <p>No user data found. Please register or log in first.</p>
+  </section>
+</ng-template>
