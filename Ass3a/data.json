@@ -1,0 +1,11 @@
+{
+  "name": "Anisha",
+  "course": "IT",
+  "college": "PICT",
+  "testData": {
+    "message": "This is sample JSON data for testing the static server",
+    "files": ["index.html", "style.css", "script.js", "data.json", "test.txt", "sample.md"],
+    "status": "success"
+  },
+  "timestamp": "2026-03-25T16:30:00Z"
+}

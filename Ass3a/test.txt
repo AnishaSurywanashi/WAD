@@ -1,0 +1,14 @@
+This is a sample text file for testing static server.
+
+This file demonstrates the ability of the Node.js static web server
+to serve plain text files with proper MIME type handling.
+
+Server Features:
+- Serves files from current directory
+- Supports multiple file types (HTML, CSS, JS, JSON, Images, etc.)
+- Prevents directory traversal attacks
+- Handles 404 and 500 errors gracefully
+- Uses asynchronous file reading for performance
+
+Created on: March 25, 2026
+For: Static Web Server Testing
