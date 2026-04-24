@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mobile Store</title>
+    
+    <!-- jQuery Mobile CSS -->
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    
+    <!-- jQuery Library -->
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    
+    <!-- jQuery Mobile JS -->
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    
+    <!-- Custom Styles -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .ui-page {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        /* Header Styling */
+        .ui-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            border: none !important;
+        }
+
+        .ui-header h1 {
+            color: white !important;
+            font-weight: 700;
+            font-size: 1.8em;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .ui-navbar {
+            background: rgba(255, 255, 255, 0.95) !important;
+            box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        .ui-navbar a {
+            color: #667eea !important;
+            font-weight: 600;
+            border: none !important;
+        }
+
+        .ui-navbar .ui-btn-active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+            color: white !important;
+        }
+
+        /* Footer Styling */
+        .ui-footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%) !important;
+            color: white !important;
+            border-top: 3px solid #667eea;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .ui-footer h4 {
+            color: white !important;
+            font-size: 0.95em;
+            letter-spacing: 0.5px;
+        }
+
+        /* Content Area */
+        .ui-content {
+            background-color: transparent !important;
+            padding: 15px !important;
+        }
+
+        /* Hero Banner */
+        .hero-banner {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 15px;
+            margin: 15px 0;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.35);
+            animation: slideInDown 0.6s ease-out;
+        }
+
+        .hero-banner h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.2em;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-banner p {
+            margin: 0;
+            font-size: 1.1em;
+            opacity: 0.95;
+            font-weight: 500;
+        }
+
+        /* Product Card */
+        .product-card {
+            background-color: white;
+            padding: 18px;
+            margin: 12px 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid #667eea;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.25);
+            transform: translateY(-5px);
+            border-top: 4px solid #764ba2;
+        }
+
+        .product-card h3 {
+            color: #2c3e50;
+            margin: 0 0 8px 0;
+            font-size: 1.3em;
+            font-weight: 700;
+        }
+
+        .product-price {
+            color: #e74c3c;
+            font-size: 1.5em;
+            font-weight: 800;
+            margin: 10px 0;
+            letter-spacing: -0.5px;
+        }
+
+        .product-card p {
+            color: #555;
+            margin: 8px 0;
+            line-height: 1.6;
+            font-size: 0.95em;
+        }
+
+        /* Featured Item */
+        .featured-item {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            padding: 20px;
+            margin: 15px 0;
+            border-left: 5px solid #667eea;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .featured-item:hover {
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.25);
+            border-left: 5px solid #764ba2;
+            transform: translateX(5px);
+        }
+
+        .featured-item h3 {
+            color: #2c3e50;
+            margin: 0 0 10px 0;
+            font-size: 1.4em;
+            font-weight: 700;
+        }
+
+        .featured-item p {
+            color: #666;
+            line-height: 1.7;
+            margin: 8px 0;
+        }
+
+        /* Rating */
+        .rating {
+            color: #f39c12;
+            margin: 8px 0;
+            font-size: 1.05em;
+            font-weight: 600;
+        }
+
+        /* Buttons */
+        .ui-btn {
+            border-radius: 8px !important;
+            font-weight: 600 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.5px !important;
+            transition: all 0.3s ease !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+        }
+
+        .ui-btn:hover {
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25) !important;
+            transform: translateY(-2px);
+        }
+
+        .ui-btn-b {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+            color: white !important;
+            border: none !important;
+        }
+
+        .ui-btn-success {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%) !important;
+            color: white !important;
+            border: none !important;
+        }
+
+        .ui-btn-success:hover {
+            background: linear-gradient(135deg, #0d7f72 0%, #2ab85f 100%) !important;
+        }
+
+        .ui-btn-info {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+            color: white !important;
+            border: none !important;
+            margin: 5px !important;
+        }
+
+        /* Forms */
+        .ui-field-contain {
+            background-color: white;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid #667eea;
+        }
+
+        .ui-field-contain label {
+            color: #2c3e50 !important;
+            font-weight: 700;
+            display: block !important;
+            margin-bottom: 8px !important;
+            font-size: 1em;
+        }
+
+        .ui-field-contain input,
+        .ui-field-contain textarea,
+        .ui-field-contain select {
+            border-radius: 8px !important;
+            border: 2px solid #e0e0e0 !important;
+            padding: 12px !important;
+            font-size: 1em !important;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .ui-field-contain input:focus,
+        .ui-field-contain textarea:focus,
+        .ui-field-contain select:focus {
+            border-color: #667eea !important;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
+            outline: none;
+        }
+
+        /* Lists */
+        .ui-listview {
+            background-color: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+
+        .ui-listview li {
+            background-color: white !important;
+            border: none !important;
+            margin: 10px 0 !important;
+            border-radius: 10px !important;
+            padding: 0 !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+            transition: all 0.3s ease;
+        }
+
+        .ui-listview li:hover {
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.2) !important;
+            transform: translateY(-2px);
+        }
+
+        .ui-listview-inset li {
+            border-radius: 10px !important;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12) !important;
+        }
+
+        .ui-body {
+            color: #333 !important;
+            padding: 15px !important;
+        }
+
+        /* Grid Layout */
+        .ui-grid-b {
+            margin: 15px 0;
+        }
+
+        .ui-block-a, .ui-block-b, .ui-block-c {
+            padding: 5px !important;
+        }
+
+        /* Animations */
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .featured-item {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .product-card {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Heading Styles */
+        h2 {
+            color: #2c3e50 !important;
+            font-size: 1.8em;
+            font-weight: 800;
+            margin: 20px 0 15px 0 !important;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        h3 {
+            color: #2c3e50 !important;
+            font-weight: 700;
+            margin-top: 15px !important;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 480px) {
+            .hero-banner h1 {
+                font-size: 1.8em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            .ui-header h1 {
+                font-size: 1.4em;
+            }
+
+            .product-card {
+                margin: 10px 0;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HOME PAGE -->
+<div data-role="page" id="home">
+    
+    <!-- Header -->
+    <div data-role="header" data-position="fixed">
+        <h1>Mobile Store</h1>
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#home" class="ui-btn-active">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <div role="main" class="ui-content">
+        <div class="hero-banner">
+            <h1>🛍️ Welcome to Mobile Store</h1>
+            <p>Your Ultimate Destination for Premium Mobile Devices & Accessories</p>
+        </div>
+        
+        <h2>⭐ Featured Products</h2>
+        
+        <div class="featured-item">
+            <h3>Smartphone Pro X</h3>
+            <div class="rating">★★★★★ (245 reviews)</div>
+            <p class="product-price">$899.99</p>
+            <p>Latest flagship smartphone with advanced features, powerful processor, and stunning display.</p>
+            <a href="#products" class="ui-btn ui-corner-all ui-shadow ui-btn-b">View All Products</a>
+        </div>
+        
+        <div class="featured-item">
+            <h3>Wireless Headphones</h3>
+            <div class="rating">★★★★☆ (189 reviews)</div>
+            <p class="product-price">$199.99</p>
+            <p>Premium noise-cancelling headphones with 30-hour battery life and superior sound quality.</p>
+        </div>
+        
+        <div class="featured-item">
+            <h3>Smart Watch Elite</h3>
+            <div class="rating">★★★★★ (312 reviews)</div>
+            <p class="product-price">$349.99</p>
+            <p>Next-gen smartwatch with fitness tracking, heart rate monitor, and seamless connectivity.</p>
+        </div>
+        
+        <h2>Why Shop With Us?</h2>
+        <ul class="ui-listview">
+            <li class="ui-body ui-body-a">📦 Free Shipping on Orders Over $50</li>
+            <li class="ui-body ui-body-a">💰 30-Day Money Back Guarantee</li>
+            <li class="ui-body ui-body-a">📞 24/7 Customer Support</li>
+            <li class="ui-body ui-body-a">✅ Authentic Products Only</li>
+        </ul>
+    </div>
+    
+    <!-- Footer -->
+    <div data-role="footer" data-position="fixed">
+        <h4>Mobile Store © 2026 | All Rights Reserved</h4>
+    </div>
+    
+</div>
+
+<!-- PRODUCTS PAGE -->
+<div data-role="page" id="products">
+    
+    <!-- Header -->
+    <div data-role="header" data-position="fixed">
+        <a href="#home" class="ui-btn ui-btn-left ui-corner-all ui-shadow ui-btn-icon-left ui-icon-home">Back</a>
+        <h1>Products</h1>
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products" class="ui-btn-active">Products</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <div role="main" class="ui-content">
+        <h2>📱 Our Product Catalog</h2>
+        
+        <!-- Filter Buttons -->
+        <fieldset class="ui-grid-b">
+            <div class="ui-block-a"><button class="ui-btn ui-corner-all ui-shadow ui-btn-a">All</button></div>
+            <div class="ui-block-b"><button class="ui-btn ui-corner-all ui-shadow ui-btn-b">Electronics</button></div>
+            <div class="ui-block-c"><button class="ui-btn ui-corner-all ui-shadow ui-btn-b">Accessories</button></div>
+        </fieldset>
+        
+        <!-- Product List -->
+        <ul class="ui-listview">
+            <li class="product-card">
+                <h3>Smartphone Pro X</h3>
+                <p class="product-price">$899.99</p>
+                <p>Flagship device with 6.7" display, 5G connectivity, and 12MP camera</p>
+                <a href="#detail1" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">View Details</a>
+            </li>
+            
+            <li class="product-card">
+                <h3>Wireless Earbuds</h3>
+                <p class="product-price">$149.99</p>
+                <p>True wireless with ANC, 8-hour battery, and touch controls</p>
+                <a href="#detail2" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">View Details</a>
+            </li>
+            
+            <li class="product-card">
+                <h3>Smart Watch Elite</h3>
+                <p class="product-price">$349.99</p>
+                <p>Fitness tracking, GPS, heart rate monitor, 5-day battery</p>
+                <a href="#detail3" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">View Details</a>
+            </li>
+            
+            <li class="product-card">
+                <h3>Tablet Ultra</h3>
+                <p class="product-price">$599.99</p>
+                <p>10.1" display, 256GB storage, 8GB RAM, stylus included</p>
+                <a href="#detail4" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">View Details</a>
+            </li>
+            
+            <li class="product-card">
+                <h3>Wireless Charger</h3>
+                <p class="product-price">$39.99</p>
+                <p>Fast charging pad, universal compatibility, LED indicator</p>
+                <a href="#detail5" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">View Details</a>
+            </li>
+            
+            <li class="product-card">
+                <h3>Phone Case Pro</h3>
+                <p class="product-price">$24.99</p>
+                <p>Durable protection, slim design, multiple colors available</p>
+                <a href="#detail6" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">View Details</a>
+            </li>
+        </ul>
+    </div>
+    
+    <!-- Footer -->
+    <div data-role="footer" data-position="fixed">
+        <h4>Mobile Store © 2026 | All Rights Reserved</h4>
+    </div>
+    
+</div>
+
+<!-- PRODUCT DETAIL PAGE 1 -->
+<div data-role="page" id="detail1">
+    <div data-role="header" data-position="fixed">
+        <a href="#products" class="ui-btn ui-btn-left ui-corner-all ui-shadow ui-btn-icon-left ui-icon-arrow-l">Back</a>
+        <h1>Product Details</h1>
+    </div>
+    
+    <div role="main" class="ui-content">
+        <h2>Smartphone Pro X</h2>
+        
+        <div style="background-color: #e3f2fd; padding: 20px; border-radius: 5px; text-align: center; margin: 10px 0;">
+            <img src="https://via.placeholder.com/300x300?text=Smartphone+Pro+X" alt="Smartphone" style="width: 100%; max-width: 300px; border-radius: 5px;">
+        </div>
+        
+        <p class="product-price">$899.99</p>
+        <p class="rating">★★★★★ 245 Reviews</p>
+        
+        <h3>📋 Specifications</h3>
+        <ul>
+            <li>Display: 6.7" Dynamic AMOLED 120Hz</li>
+            <li>Processor: Snapdragon 8 Gen 2</li>
+            <li>RAM: 12GB</li>
+            <li>Storage: 256GB / 512GB</li>
+            <li>Camera: 50MP Main, 12MP Ultra-wide, 10MP Telephoto</li>
+            <li>Battery: 4500mAh with 65W Charging</li>
+            <li>5G: Yes</li>
+        </ul>
+        
+        <h3>Description</h3>
+        <p>The ultimate flagship smartphone combining cutting-edge technology with premium design. Experience stunning visuals, lightning-fast performance, and exceptional camera capabilities.</p>
+        
+        <h3>🛒 Add to Cart</h3>
+        <input type="number" name="quantity" id="quantity" value="1" min="1" max="10" placeholder="Enter quantity">
+        
+        <button class="ui-btn ui-corner-all ui-shadow ui-btn-success ui-icon-plus ui-btn-icon-left" style="margin-top: 15px;">Add to Cart</button>
+    </div>
+    
+    <div data-role="footer" data-position="fixed">
+        <h4>Mobile Store © 2026 | All Rights Reserved</h4>
+    </div>
+</div>
+
+<!-- PRODUCT DETAIL PAGE 2 -->
+<div data-role="page" id="detail2">
+    <div data-role="header" data-position="fixed">
+        <a href="#products" class="ui-btn ui-btn-left ui-corner-all ui-shadow ui-btn-icon-left ui-icon-arrow-l">Back</a>
+        <h1>Product Details</h1>
+    </div>
+    
+    <div role="main" class="ui-content">
+        <h2>Wireless Earbuds</h2>
+        
+        <div style="background-color: #f3e5f5; padding: 20px; border-radius: 5px; text-align: center; margin: 10px 0;">
+            <img src="https://via.placeholder.com/300x300?text=Wireless+Earbuds" alt="Earbuds" style="width: 100%; max-width: 300px; border-radius: 5px;">
+        </div>
+        
+        <p class="product-price">$149.99</p>
+        <p class="rating">★★★★☆ 189 Reviews</p>
+        
+        <h3>📋 Specifications</h3>
+        <ul>
+            <li>Type: True Wireless</li>
+            <li>Driver: 6mm Dynamic</li>
+            <li>Battery Life: 8 hours (earbuds) + 24 hours (case)</li>
+            <li>Charging: USB-C, 30 mins quick charge</li>
+            <li>Water Resistance: IPX4</li>
+            <li>Active Noise Cancellation: Yes</li>
+            <li>Connectivity: Bluetooth 5.2</li>
+        </ul>
+        
+        <h3>Description</h3>
+        <p>Experience premium audio with active noise cancellation. Perfect for music, calls, and workouts with exceptional comfort and long battery life.</p>
+        
+        <h3>🛒 Add to Cart</h3>
+        <input type="number" name="quantity" id="quantity2" value="1" min="1" max="10" placeholder="Enter quantity">
+        
+        <button class="ui-btn ui-corner-all ui-shadow ui-btn-success ui-icon-plus ui-btn-icon-left" style="margin-top: 15px;">Add to Cart</button>
+    </div>
+    
+    <div data-role="footer" data-position="fixed">
+        <h4>Mobile Store © 2026 | All Rights Reserved</h4>
+    </div>
+</div>
+
+<!-- PRODUCT DETAIL PAGE 3 -->
+<div data-role="page" id="detail3">
+    <div data-role="header" data-position="fixed">
+        <a href="#products" class="ui-btn ui-btn-left ui-corner-all ui-shadow ui-btn-icon-left ui-icon-arrow-l">Back</a>
+        <h1>Product Details</h1>
+    </div>
+    
+    <div role="main" class="ui-content">
+        <h2>Smart Watch Elite</h2>
+        
+        <div style="background-color: #e0f2f1; padding: 20px; border-radius: 5px; text-align: center; margin: 10px 0;">
+            <img src="https://via.placeholder.com/300x300?text=Smart+Watch" alt="Watch" style="width: 100%; max-width: 300px; border-radius: 5px;">
+        </div>
+        
+        <p class="product-price">$349.99</p>
+        <p class="rating">★★★★★ 312 Reviews</p>
+        
+        <h3>📋 Specifications</h3>
+        <ul>
+            <li>Display: 1.4" AMOLED 454x454</li>
+            <li>OS: Proprietary (compatible with iOS/Android)</li>
+            <li>Battery Life: 5 days</li>
+            <li>Water Resistance: 5ATM</li>
+            <li>Heart Rate Monitor: Yes</li>
+            <li>GPS: Yes</li>
+            <li>Sleep Tracking: Advanced AI</li>
+        </ul>
+        
+        <h3>Description</h3>
+        <p>Monitor your health and fitness with precision. Advanced sensors track heart rate, sleep patterns, workouts, and provide personalized insights for a healthier lifestyle.</p>
+        
+        <h3>🛒 Add to Cart</h3>
+        <input type="number" name="quantity" id="quantity3" value="1" min="1" max="10" placeholder="Enter quantity">
+        
+        <button class="ui-btn ui-corner-all ui-shadow ui-btn-success ui-icon-plus ui-btn-icon-left" style="margin-top: 15px;">Add to Cart</button>
+    </div>
+    
+    <div data-role="footer" data-position="fixed">
+        <h4>Mobile Store © 2026 | All Rights Reserved</h4>
+    </div>
+</div>
+
+<!-- PRODUCT DETAIL PAGE 4 -->
+<div data-role="page" id="detail4">
+    <div data-role="header" data-position="fixed">
+        <a href="#products" class="ui-btn ui-btn-left ui-corner-all ui-shadow ui-btn-icon-left ui-icon-arrow-l">Back</a>
+        <h1>Product Details</h1>
+    </div>
+    
+    <div role="main" class="ui-content">
+        <h2>Tablet Ultra</h2>
+        
+        <div style="background-color: #fff3e0; padding: 20px; border-radius: 5px; text-align: center; margin: 10px 0;">
+            <img src="https://via.placeholder.com/300x300?text=Tablet" alt="Tablet" style="width: 100%; max-width: 300px; border-radius: 5px;">
+        </div>
+        
+        <p class="product-price">$599.99</p>
+        <p class="rating">★★★★☆ 156 Reviews</p>
+        
+        <h3>📋 Specifications</h3>
+        <ul>
+            <li>Display: 10.1" IPS LCD 1920x1200</li>
+            <li>Processor: Snapdragon 870</li>
+            <li>RAM: 8GB</li>
+            <li>Storage: 256GB</li>
+            <li>Camera: 13MP Rear, 8MP Front</li>
+            <li>Battery: 7500mAh</li>
+            <li>OS: Latest Android</li>
+        </ul>
+        
+        <h3>Description</h3>
+        <p>Perfect for work, entertainment, and creativity. Large display, powerful processor, and stylus support make it ideal for productivity and creative tasks.</p>
+        
+        <h3>🛒 Add to Cart</h3>
+        <input type="number" name="quantity" id="quantity4" value="1" min="1" max="10" placeholder="Enter quantity">
+        
+        <button class="ui-btn ui-corner-all ui-shadow ui-btn-success ui-icon-plus ui-btn-icon-left" style="margin-top: 15px;">Add to Cart</button>
+    </div>
+    
+    <div data-role="footer" data-position="fixed">
+        <h4>Mobile Store © 2026 | All Rights Reserved</h4>
+    </div>
+</div>
+
+<!-- PRODUCT DETAIL PAGE 5 -->
+<div data-role="page" id="detail5">
+    <div data-role="header" data-position="fixed">
+        <a href="#products" class="ui-btn ui-btn-left ui-corner-all ui-shadow ui-btn-icon-left ui-icon-arrow-l">Back</a>
+        <h1>Product Details</h1>
+    </div>
+    
+    <div role="main" class="ui-content">
+        <h2>Wireless Charger</h2>
+        
+        <div style="background-color: #fce4ec; padding: 20px; border-radius: 5px; text-align: center; margin: 10px 0;">
+            <img src="https://via.placeholder.com/300x300?text=Charger" alt="Charger" style="width: 100%; max-width: 300px; border-radius: 5px;">
+        </div>
+        
+        <p class="product-price">$39.99</p>
+        <p class="rating">★★★★★ 420 Reviews</p>
+        
+        <h3>📋 Specifications</h3>
+        <ul>
+            <li>Type: Wireless Qi Charging Pad</li>
+            <li>Power Output: 15W Fast Charging</li>
+            <li>Compatibility: Universal Qi-enabled devices</li>
+            <li>LED Status Indicator: Yes</li>
+            <li>Non-slip Surface: Yes</li>
+            <li>Compact Design: Portable and lightweight</li>
+        </ul>
+        
+        <h3>Description</h3>
+        <p>Charge your devices wirelessly with convenience. Fast charging pad works with all Qi-enabled smartphones and comes with a non-slip surface for stability.</p>
+        
+        <h3>🛒 Add to Cart</h3>
+        <input type="number" name="quantity" id="quantity5" value="1" min="1" max="10" placeholder="Enter quantity">
+        
+        <button class="ui-btn ui-corner-all ui-shadow ui-btn-success ui-icon-plus ui-btn-icon-left" style="margin-top: 15px;">Add to Cart</button>
+    </div>
+    
+    <div data-role="footer" data-position="fixed">
+        <h4>Mobile Store © 2026 | All Rights Reserved</h4>
+    </div>
+</div>
+
+<!-- PRODUCT DETAIL PAGE 6 -->
+<div data-role="page" id="detail6">
+    <div data-role="header" data-position="fixed">
+        <a href="#products" class="ui-btn ui-btn-left ui-corner-all ui-shadow ui-btn-icon-left ui-icon-arrow-l">Back</a>
+        <h1>Product Details</h1>
+    </div>
+    
+    <div role="main" class="ui-content">
+        <h2>Phone Case Pro</h2>
+        
+        <div style="background-color: #ede7f6; padding: 20px; border-radius: 5px; text-align: center; margin: 10px 0;">
+            <img src="https://via.placeholder.com/300x300?text=Phone+Case" alt="Case" style="width: 100%; max-width: 300px; border-radius: 5px;">
+        </div>
+        
+        <p class="product-price">$24.99</p>
+        <p class="rating">★★★★★ 580 Reviews</p>
+        
+        <h3>📋 Specifications</h3>
+        <ul>
+            <li>Material: Premium TPU + PC hybrid</li>
+            <li>Protection Level: Military Grade (MIL-STD-810)</li>
+            <li>Design: Slim and lightweight</li>
+            <li>Colors: 12 colors available</li>
+            <li>Compatibility: Multiple phone models</li>
+            <li>Raised Edges: Protects camera and screen</li>
+        </ul>
+        
+        <h3>Description</h3>
+        <p>Protect your phone with style. Durable case with military-grade protection, slim design, and available in multiple vibrant colors.</p>
+        
+        <h3>🛒 Add to Cart</h3>
+        <input type="number" name="quantity" id="quantity6" value="1" min="1" max="10" placeholder="Enter quantity">
+        
+        <button class="ui-btn ui-corner-all ui-shadow ui-btn-success ui-icon-plus ui-btn-icon-left" style="margin-top: 15px;">Add to Cart</button>
+    </div>
+    
+    <div data-role="footer" data-position="fixed">
+        <h4>Mobile Store © 2026 | All Rights Reserved</h4>
+    </div>
+</div>
+
+<!-- CONTACT PAGE -->
+<div data-role="page" id="contact">
+    
+    <!-- Header -->
+    <div data-role="header" data-position="fixed">
+        <a href="#home" class="ui-btn ui-btn-left ui-corner-all ui-shadow ui-btn-icon-left ui-icon-home">Home</a>
+        <h1>Contact Us</h1>
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#contact" class="ui-btn-active">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <div role="main" class="ui-content">
+        <h2>📧 Get In Touch</h2>
+        <p>Have questions? We'd love to hear from you. Fill out the form below and we'll get back to you within 24 hours.</p>
+        
+        <form id="contactForm">
+            <div class="ui-field-contain">
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="name" placeholder="Your Full Name" required>
+            </div>
+            
+            <div class="ui-field-contain">
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" placeholder="Your Email Address" required>
+            </div>
+            
+            <div class="ui-field-contain">
+                <label for="phone">Phone:</label>
+                <input type="tel" name="phone" id="phone" placeholder="Your Phone Number">
+            </div>
+            
+            <div class="ui-field-contain">
+                <label for="subject">Subject:</label>
+                <select name="subject" id="subject">
+                    <option>Product Inquiry</option>
+                    <option>Support Request</option>
+                    <option>General Feedback</option>
+                    <option>Partnership Opportunity</option>
+                </select>
+            </div>
+            
+            <div class="ui-field-contain">
+                <label for="message">Message:</label>
+                <textarea name="message" id="message" placeholder="Your Message" style="min-height: 120px;" required></textarea>
+            </div>
+            
+            <button type="submit" class="ui-btn ui-corner-all ui-shadow ui-btn-success ui-icon-mail ui-btn-icon-left">Send Message</button>
+        </form>
+        
+        <h3 style="margin-top: 30px;">📞 Contact Information</h3>
+        <ul class="ui-listview ui-listview-inset">
+            <li class="ui-body">
+                <strong>📍 Address:</strong><br>
+                123 Tech Street, Silicon Valley, CA 94025
+            </li>
+            <li class="ui-body">
+                <strong>📧 Email:</strong><br>
+                support@mobilestore.com
+            </li>
+            <li class="ui-body">
+                <strong>📱 Phone:</strong><br>
+                1-800-MOBILE-1 (1-800-662-4531)
+            </li>
+            <li class="ui-body">
+                <strong>⏰ Hours:</strong><br>
+                Mon-Fri: 9am - 8pm EST<br>
+                Sat-Sun: 10am - 6pm EST
+            </li>
+        </ul>
+        
+        <h3>🌐 Connect With Us</h3>
+        <div style="margin: 15px 0;">
+            <button class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-info">Facebook</button>
+            <button class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-info">Twitter</button>
+            <button class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-info">Instagram</button>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <div data-role="footer" data-position="fixed">
+        <h4>Mobile Store © 2026 | All Rights Reserved</h4>
+    </div>
+    
+</div>
+
+<!-- JavaScript for Form Handling -->
+<script>
+$(document).ready(function() {
+    
+    // Handle Contact Form Submission
+    $('#contactForm').on('submit', function(e) {
+        e.preventDefault();
+        
+        var formData = {
+            name: $('#name').val(),
+            email: $('#email').val(),
+            phone: $('#phone').val(),
+            subject: $('#subject').val(),
+            message: $('#message').val()
+        };
+        
+        // Display Success Message
+        $.mobile.loading('show', {
+            text: 'Sending your message...',
+            textVisible: true,
+            theme: 'b'
+        });
+        
+        setTimeout(function() {
+            $.mobile.loading('hide');
+            alert('Thank you! Your message has been sent successfully. We will contact you soon.');
+            $('#contactForm')[0].reset();
+            $.mobile.navigate("#home");
+        }, 1500);
+    });
+    
+    // Handle Add to Cart Button
+    $('.ui-btn-success').on('click', function() {
+        var quantity = $(this).siblings('input[type="number"]').val();
+        alert('Product added to cart! Quantity: ' + quantity);
+    });
+    
+    // Mobile Menu Enhancement
+    $(document).on('click', '.ui-listview li', function() {
+        $(this).addClass('ui-collapsible-collapsed');
+    });
+});
+</script>
+
+</body>
+</html>
