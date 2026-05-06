@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Reviews</title>
+     <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+     <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div data-role="page" id="home">
+        <div data-role="header">
+            <h1>Movie Reviews</h1>
+        </div>
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#home" class="ui-btn-active">Home</a></li>
+                <li><a href="#reviews" data-transition="slide">Reviews</a></li>
+            </ul>
+        </div>
+        <div data-role="content">
+            <div class="content-box">
+                <h2>Welcome to Movie Reviews</h2>
+                <p>Discover the latest movie reviews and ratings.</p>
+            </div>
+        </div>
+    </div>
+
+    <div data-role="page" id="reviews">
+        <div data-role="header">
+            <h1>Movie Reviews</h1>
+        </div>
+            <div data-role="navbar">
+            <ul>
+                <li><a href="#home" class="ui-btn-active">Home</a></li>
+                <li><a href="#reviews" data-transition="slide">Reviews</a></li>
+            </ul>
+        </div>
+        <div data-role="content">
+            <div class="content-box">
+                <h2>Latest Reviews</h2>
+                <p>Check out the newest movie reviews!</p>
+            </div>
+            <div data-role="collapsible">
+                <h2>Inception</h2>
+                <div class="movie-box">
+                   <img src="https://via.placeholder.com/300x400?text=Inception">
+                   <p class="genre">Genre: Sci-Fi, Thriller</p>
+                   <p><b>Summary:</b> A thief enters dreams to steal secrets.</p>
+                <div class="review">
+                    <b>Review:</b> Mind-bending story with excellent visuals and strong performances.
+                </div>
+                </div>
+         </div>                          <!-- Movie 2 -->
+        <div data-role="collapsible">
+            <h3>Avengers: Endgame</h3>
+            <div class="movie-box">
+                <img src="https://via.placeholder.com/300x400?text=Endgame">
+                <p class="genre">Genre: Action, Superhero</p>
+                <p><b>Summary:</b> Avengers assemble to defeat Thanos.</p>
+                <div class="review">
+                    <b>Review:</b> Emotional and action-packed conclusion to the Marvel saga.
+                </div>
+            </div>
+        </div>
+
+           <!-- Movie 3 -->
+        <div data-role="collapsible">
+            <h3>3 Idiots</h3>
+            <div class="movie-box">
+                <img src="https://via.placeholder.com/300x400?text=3+Idiots">
+                <p class="genre">Genre: Comedy, Drama</p>
+                <p><b>Summary:</b> Three students navigate college life.</p>
+                <div class="review">
+                    <b>Review:</b> Inspiring story with humor and strong message about education.
+                </div>
+            </div>
+        </div>
+        <!-- Movie 4 -->
+        <div data-role="collapsible">
+            <h3>Interstellar</h3>
+            <div class="movie-box">
+                <img src="https://via.placeholder.com/300x400?text=Interstellar">
+                <p class="genre">Genre: Sci-Fi, Adventure</p>
+                <p><b>Summary:</b> A team travels through space to save humanity.</p>
+                <div class="review">
+                    <b>Review:</b> Visually stunning with deep emotional storytelling.
+                </div>
+            </div>
+        </div>  
+               <!-- Movie 5 -->
+        <div data-role="collapsible">
+            <h3>KGF Chapter 1</h3>
+            <div class="movie-box">
+                <img src="https://via.placeholder.com/300x400?text=KGF">
+                <p class="genre">Genre: Action, Drama</p>
+                <p><b>Summary:</b> Rise of a powerful man in the gold mafia.</p>
+                <div class="review">
+                    <b>Review:</b> Stylish action with powerful background music and story.
+                </div>
+            </div>
+        </div>
+ 
+        </div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,94 @@
+/* Body */
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+    margin: 0;
+}
+
+/* Header */
+.ui-header {
+    background: #111 !important;
+    color: white !important;
+    text-align: center;
+    padding: 10px;
+}
+
+.ui-header h1 {
+    color: white !important;
+    font-size: 20px;
+}
+
+/* Navbar */
+.ui-navbar ul li a {
+    background: #333 !important;
+    color: white !important;
+    font-weight: bold;
+}
+
+.ui-btn-active {
+    background: #ff4444 !important;
+    color: white !important;
+}
+
+/* Home content box */
+#home .content-box {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 85%;
+    margin: 40px auto;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+/* Reviews heading box */
+#reviews .content-box {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    width: 90%;
+    margin: 15px auto;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Collapsible styling */
+.ui-collapsible {
+    margin: 15px auto;
+    width: 90%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.ui-collapsible-heading {
+    background: #ff4444 !important;
+    color: white !important;
+    font-size: 16px;
+}
+
+/* Movie content */
+.movie-box {
+    padding: 10px;
+}
+
+/* Image */
+.movie-box img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* Genre */
+.genre {
+    color: #ff4444;
+    font-weight: bold;
+}
+
+/* Review box */
+.review {
+    background: #f1f1f1;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 8px;
+    font-size: 14px;
+}

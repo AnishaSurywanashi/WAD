@@ -1,0 +1,91 @@
+/* Page Background */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #74ebd5, #9face6);
+}
+
+/* Center Container */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Card Box */
+.card {
+  background: white;
+  padding: 25px;
+  width: 350px;
+  border-radius: 12px;
+}
+
+/* Shadow Effect */
+.shadow-box {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Heading */
+h2 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* Input Field */
+input {
+  width: 70%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+}
+
+/* Buttons General */
+button {
+  padding: 7px 10px;
+  margin-left: 5px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  color: white;
+}
+
+/* Add Button */
+button:nth-child(3) {
+  background-color: #28a745;
+}
+
+/* Update Button */
+button:nth-child(4) {
+  background-color: #007bff;
+}
+
+/* Task List */
+ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+}
+
+/* Each Task */
+li {
+  background: #f1f1f1;
+  margin: 8px 0;
+  padding: 8px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Edit Button */
+li button:nth-child(2) {
+  background-color: #ffc107;
+  color: black;
+}
+
+/* Delete Button */
+li button:nth-child(3) {
+  background-color: #dc3545;
+}

@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Header styling */
+.ui-header {
+    background: #003366 !important;
+    color: white !important;
+}
+
+.ui-header h1 {
+    color: white !important;
+}
+
+/* Navbar */
+.ui-navbar ul li a {
+    background: #005599 !important;
+    color: white !important;
+}
+
+.ui-btn-active {
+    background: #ff6600 !important;
+}
+
+/* Content */
+.content-box {
+    padding: 15px;
+    background: #f4f4f4;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+/* Footer */
+.ui-footer {
+    background: #003366 !important;
+    color: white !important;
+    text-align: center;
+}
+
+/* Collapsible */
+.ui-collapsible-heading {
+    background: #0077cc !important;
+    color: white !important;
+}

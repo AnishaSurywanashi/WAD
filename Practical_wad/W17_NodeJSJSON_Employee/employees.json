@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Samkisha Patil",
+    "designation": "Software Engineer",
+    "department": "IT",
+    "salary": 50000,
+    "image": "https://images.unsplash.com/photo-1607746882042-944635dfe10e"
+  },
+  {
+    "id": 2,
+    "name": "Rahul Sharma",
+    "designation": "HR Manager",
+    "department": "HR",
+    "salary": 60000,
+    "image": "https://images.unsplash.com/photo-1595152772835-219674b2a8a6"
+  },
+  {
+    "id": 3,
+    "name": "Sneha Joshi",
+    "designation": "UI Designer",
+    "department": "Design",
+    "salary": 45000,
+    "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2"
+  }
+]

@@ -1,0 +1,100 @@
+/* Body */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #eef2f7, #dbe6f6);
+}
+
+/* Header */
+.ui-header {
+    background: #003366 !important;
+    color: white !important;
+    text-align: center;
+    border-top: 4px solid #ff6600;
+    padding: 15px 0;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.ui-header h1 {
+    color: white !important;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+/* Navbar */
+.ui-navbar ul li a {
+    background: #005599 !important;
+    color: white !important;
+    font-weight: bold;
+    padding: 10px 15px;
+}
+
+.ui-btn-active {
+
+    background: #ff6600 !important;
+}
+
+
+/* Main content box */
+.content-box {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    width: 90%;
+    height: 100px;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Heading styling */
+.content-box h2 {
+    color: #003366;
+    margin-bottom: 10px;
+}
+
+/* Text */
+.content-box p {
+    color: #444;
+    font-size: 15px;
+}
+
+/* Collapsible */
+.ui-collapsible {
+    margin: 12px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.ui-collapsible-heading {
+    background: #0077cc !important;
+    color: white !important;
+    font-size: 16px;
+}
+
+/* Subjects */
+.subject {
+    padding: 12px;
+    background: #ffffff;
+    border-left: 4px solid #003366;
+    margin: 6px 0;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.subject b {
+    color: #003366;
+}
+
+/* Center ONLY Home page */
+#Home .ui-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+}
+
+/* Courses page should be normal */
+#Courses .ui-content {
+    display: block;
+    padding: 10px;
+}

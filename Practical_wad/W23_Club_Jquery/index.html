@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PICT Clubs</title>
+
+    <!-- jQuery Mobile -->
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f6f9;
+        }
+
+        .ui-header {
+            background: #003366 !important;
+            color: white !important;
+            text-align: center;
+        }
+
+        .ui-navbar ul li a {
+            background: #005599 !important;
+            color: white !important;
+        }
+
+        .ui-btn-active {
+            background: #ff6600 !important;
+        }
+
+        .content-box {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .ui-collapsible {
+            margin: 15px;
+            border-radius: 10px;
+        }
+
+        .ui-collapsible-heading {
+            background: #0077cc !important;
+            color: white !important;
+        }
+
+        .club-box {
+            padding: 10px;
+        }
+
+        .club-box img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .achievement {
+            background: #eef;
+            padding: 8px;
+            border-radius: 6px;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- HOME PAGE -->
+<div data-role="page" id="home">
+
+    <div data-role="header">
+        <h1>PICT Clubs</h1>
+    </div>
+
+    <div data-role="navbar">
+        <ul>
+            <li><a href="#home" class="ui-btn-active">Home</a></li>
+            <li><a href="#clubs" data-transition="slide">Clubs</a></li>
+        </ul>
+    </div>
+
+    <div data-role="content">
+        <div class="content-box">
+            <h2>Student Clubs & Activities</h2>
+            <p>Explore various clubs at PICT that enhance technical, cultural, and creative skills.</p>
+        </div>
+    </div>
+
+</div>
+
+<!-- CLUBS PAGE -->
+<div data-role="page" id="clubs">
+
+    <div data-role="header">
+        <h1>Clubs</h1>
+    </div>
+
+    <div data-role="navbar">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#clubs" class="ui-btn-active">Clubs</a></li>
+        </ul>
+    </div>
+
+    <div data-role="content">
+
+        <!-- Coding Club -->
+        <div data-role="collapsible">
+            <h3>Coding Club</h3>
+            <div class="club-box">
+                <img src="https://via.placeholder.com/300x200?text=Coding+Club">
+                <p><b>Description:</b> Focuses on programming, competitive coding, and hackathons.</p>
+                <div class="achievement">
+                    <b>Achievements:</b> Won multiple hackathons and coding competitions.
+                </div>
+            </div>
+        </div>
+
+        <!-- Robotics Club -->
+        <div data-role="collapsible">
+            <h3>Robotics Club</h3>
+            <div class="club-box">
+                <img src="https://via.placeholder.com/300x200?text=Robotics+Club">
+                <p><b>Description:</b> Works on robotics projects, automation, and AI systems.</p>
+                <div class="achievement">
+                    <b>Achievements:</b> Built autonomous robots and participated in national events.
+                </div>
+            </div>
+        </div>
+
+        <!-- Dance Club -->
+        <div data-role="collapsible">
+            <h3>Dance Club</h3>
+            <div class="club-box">
+                <img src="https://via.placeholder.com/300x200?text=Dance+Club">
+                <p><b>Description:</b> Promotes cultural and modern dance performances.</p>
+                <div class="achievement">
+                    <b>Achievements:</b> Winners of inter-college dance competitions.
+                </div>
+            </div>
+        </div>
+
+        <!-- Music Club -->
+        <div data-role="collapsible">
+            <h3>Music Club</h3>
+            <div class="club-box">
+                <img src="https://via.placeholder.com/300x200?text=Music+Club">
+                <p><b>Description:</b> Encourages singing and instrumental music.</p>
+                <div class="achievement">
+                    <b>Achievements:</b> Organized college fests and live performances.
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
